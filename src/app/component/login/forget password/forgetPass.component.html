@@ -1,0 +1,16 @@
+
+<!-- Form Module-->
+<div class="module form-module">
+	<div class="form">
+		<form *ngIf="!forgetSuccess">
+			<h2>Forgot your password</h2>
+			<input type="email" [(ngModel)]="forgetEmail" [ngModelOptions]="{standalone: true}" placeholder="Email Address"/>
+			<button type="button" (click)="forgetPass()" >Send My Password</button>
+		</form>
+		<div *ngIf="forgetSuccess" class="register-success text-center">
+			<i class="fa fa-check-circle-o" aria-hidden="true"></i>
+			<h2>Password Forgetted Successfully !!</h2>
+		</div>
+	</div>
+	<div class="cta"><a routerLink="/login">You have account?</a></div>
+</div>

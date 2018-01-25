@@ -1,0 +1,72 @@
+<div class=" container module form-module">
+  <div class="form">
+    <h2>Expense List</h2>
+    <table class="table table-striped" >
+      <thead>
+        <tr>
+          <th class="">#</th>
+          <th class="col-xs-2">Name</th>
+          <th class="col-xs-6">Description</th>
+          <th class="col-xs-1">Amount</th>
+          <th class="col-xs-2">Date</th>
+          <th class="col-xs-1">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor ='let explist of expenseList;let i = index ' >
+          <th scope="row">{{i+1}}</th>
+          <td class="col-xs-2">{{explist.expenseName}}</td>
+          <td class="col-xs-6">{{explist.expenseDescr}}</td>
+          <td class="col-xs-1">{{explist.expenseAmount}}</td>
+          <td class="col-xs-2">
+          {{explist.date | date: 'dd'}}/{{explist.date | date:'MM'}}/{{explist.date | date: 'yyyy'}}</td>
+          <td class="col-xs-1 expense-action">
+            <span>
+              <i class="fa fa-pencil-square-o" aria-hidden="true" (click)="openModal(i)" data-toggle="tooltip" data-placement="bottom" title="Edit Expense"></i>
+            </span>
+            <span>
+              <i class="fa fa-trash-o" aria-hidden="true" (click) = "DeleteTodo(i)"></i>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <span class="hightlightSelected">Number of Expenses : </span> <span>{{expenseList?.length}}</span>
+  </div>
+</div>
+
+<div class="backdrop" [ngStyle]="{'display':display}"></div>
+
+<div class="modal" tabindex="-1" role="dialog"  [ngStyle]="{'display':display}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" aria-label="Close" (click)="onCloseHandled()"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Update Expenses</h4>
+      </div>
+      <div class="modal-body">
+       <div class="module form-module">
+        <div class="form">
+          <h2>Update Expenses</h2>
+          <!-- <p *ngIf="errMsg" class="err_msg text-center">Invalid username/password. Access denied</p> -->
+          <form>
+            <input type="text" id="inputSuccess" placeholder="Enter Expense name" [(ngModel)] = "expenseName" [ngModelOptions]="{standalone: true} " />
+
+            <input type="text" id="inputWarning"  placeholder="Enter Description" [(ngModel)] = "expenseDescr" [ngModelOptions]="{standalone: true}" />
+
+            <input type="number" id="inputError"  min="0" placeholder="Enter Amount" [(ngModel)] = "expenseAmount" [ngModelOptions]="{standalone: true}" />
+            <button type="button" (click)="updateExpense()">Update Expense</button>
+            <button type="reset">Clear</button>
+          </form>
+        </div>
+      </div> 
+    </div>
+    <div class="modal-footer">
+      <div class="selectedrow" style="float: left;">
+        <span class="hightlightSelected">Selected Expense : </span> <span *ngIf="!selectedRow==0 ">{{selectedRow}}</span>
+      </div>
+    <button type="button" class="btn btn-default" (click)="onCloseHandled()" >Close</button>
+    </div>
+  </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+</div><!-- /.modal !-->

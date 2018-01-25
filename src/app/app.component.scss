@@ -1,0 +1,71 @@
+$primary-color: #3ed7b3;
+
+.main {
+    padding: 120px 0 85px 0;
+    /*color: rgba(255, 255, 255, 0.85);*/
+    background: -webkit-linear-gradient(45deg, #fd81b5 0%, #c961f7 50%, #8089ff 100%);
+    background: linear-gradient(45deg, #fd81b5 0%, #c961f7 50%, #8089ff 100%);
+    min-height: 662px;
+    background: #efefef;
+}
+
+
+
+
+footer {
+	padding: 10px 0;
+    bottom: 0;
+    position: fixed;
+    z-index: 99;
+    background: #5a5959;
+    width: 100%;
+}
+
+footer .copyry {
+    color: #cecece !important;
+}
+
+.header-logo {
+    padding: 12px;
+}
+
+.navbar-default .navbar-nav>li>a {
+    font-size: 1.1em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.navbar-default .navbar-nav>li>a>span {
+    padding-right: 3px;
+    font-size: 0.7em;
+}
+
+.navbar-default .navbar-nav>li>a:focus,
+.navbar-default .navbar-nav>li>a:hover {
+    color: #3fc3a6;
+}
+
+span.brand-name a {
+    font-size: 1.7em;
+    line-height: 50px;
+    color: $primary-color;
+    box-sizing: border-box;
+    text-decoration: none;
+}
+
+
+span.brand-name a span:nth-child(2){
+    color: #fff;
+}
+
+.navbar-default {
+    background-color: #2b373a;
+}
+
+.navbar-header,
+.navbar-nav {
+    margin: 10px 0;
+}
+
+

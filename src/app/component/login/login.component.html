@@ -1,0 +1,31 @@
+
+  <!-- Form Module-->
+  <div class="module form-module">
+    <div class="toggle" (click)='toggleMenu()' ><i class="fa fa-times fa-pencil" ></i>
+      <div class="tooltip">Click Me</div>
+    </div>
+    <div class="form" *ngIf="!RegisterView">
+      <h2>Login to your account</h2>
+        <p *ngIf="errMsg" class="err_msg text-center">Invalid username/password. Access denied</p>
+      <form>
+        <input type="email" [(ngModel)] = "email"  [ngModelOptions]="{standalone: true}" placeholder="Email"/>
+        <input type="password" [(ngModel)] ="password"  [ngModelOptions]="{standalone: true}" placeholder="Password"/>
+        <button type="button" (click)="login()" >Login</button>
+      </form>
+    </div>
+    <div class="form" *ngIf="RegisterView">
+      <form *ngIf="!regSuccess"> 
+      <h2>Create an account</h2>
+        <input type="text" [(ngModel)] = "username"  [ngModelOptions]="{standalone: true} " placeholder="Username"/>
+        <input type="password" [(ngModel)] ="password"  [ngModelOptions]="{standalone: true}"  placeholder="Password"/>
+        <input type="email" [(ngModel)] ="email"  [ngModelOptions]="{standalone: true}"  placeholder="Email Address"/>
+        <input type="tel" [(ngModel)] ="mobile"  [ngModelOptions]="{standalone: true}"  placeholder="Phone Number"/>
+        <button type="button" (click)="register()" >Register</button>
+      </form>
+      <div *ngIf="regSuccess" class="register-success text-center">
+          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+          <h2>Register Successfully !!</h2>
+      </div>
+    </div>
+    <div class="cta"><a routerLink="/forget-password">Forgot your password?</a></div>
+  </div>

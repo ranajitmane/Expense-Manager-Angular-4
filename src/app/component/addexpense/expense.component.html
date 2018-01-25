@@ -1,0 +1,20 @@
+<div class="module form-module">
+	<div class="form">
+		
+		<!-- <p *ngIf="errMsg" class="err_msg text-center">Invalid username/password. Access denied</p> -->
+		<form *ngIf="!Success">
+			<h2>Add Expenses</h2>
+			<input type="text" id="inputSuccess" placeholder="Enter Expense name" [(ngModel)] = "expenseName" [ngModelOptions]="{standalone: true} " />
+
+			<input type="text" id="inputWarning"  placeholder="Enter Description" [(ngModel)] = "expenseDescr" [ngModelOptions]="{standalone: true}" />
+
+			<input type="number" id="inputError"  min="0" placeholder="Enter Amount" [(ngModel)] = "expenseAmount" [ngModelOptions]="{standalone: true}" />
+
+			<button type="button" (click)="addExpense()">Add Expense</button>
+		</form>
+		 <div *ngIf="Success" class="register-success text-center">
+          <i class="fa fa-check-circle-o" aria-hidden="true"></i>
+          <h2>Expense Added Successfully !!</h2>
+      </div>
+	</div>
+</div> 

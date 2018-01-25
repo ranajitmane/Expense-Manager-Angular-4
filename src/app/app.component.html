@@ -1,0 +1,32 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <!-- <img routerLink="home" class="header-logo" src="./assets/logo.png" /> -->
+      <span class="brand-name"><a routerLink="home"><span>Expense</span><span>Manager</span></a></span>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+     
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="home"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a routerLink="expense-manager"><span class="glyphicon glyphicon-info-sign"></span> Add Expense</a></li>
+        <li><a routerLink="expense-list"><span class="glyphicon glyphicon-briefcase"></span> List Expense</a></li>
+        <li>
+          <a routerLink="contact"><span class="glyphicon glyphicon-phone"></span> Contact</a>
+        </li>
+        <li>
+          <a routerLink="login"><span class="glyphicon glyphicon-log-in"></span> login</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="main">
+<router-outlet></router-outlet>
+</div>
+<footer></footer>
